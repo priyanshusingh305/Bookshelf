@@ -1,0 +1,21 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  username: "postgres"
+  password: "12345678"
+  host: localhost
+
+development:
+  <<: *default
+  database: rails_library_api_development
+
+test:
+  <<: *default
+  database: rails_library_api_test
+
+production:
+  <<: *default
+  database: rails_library_api_production
+  username: your_production_postgres_username
+  password: your_production_postgres_password
